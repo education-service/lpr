@@ -1,19 +1,20 @@
-package org.easypr.test;
+package edu.hfut.lpr.test;
 
+import static edu.hfut.lpr.core.CoreFunc.getPlateType;
+import static edu.hfut.lpr.core.CoreFunc.projectedHistogram;
+import static edu.hfut.lpr.core.CoreFunc.showImage;
 import static org.bytedeco.javacpp.opencv_highgui.imread;
-import static org.easypr.core.CoreFunc.getPlateType;
-import static org.easypr.core.CoreFunc.projectedHistogram;
-import static org.easypr.core.CoreFunc.showImage;
 
 import java.util.Vector;
 
 import org.bytedeco.javacpp.opencv_core.Mat;
-import org.easypr.core.CharsIdentify;
-import org.easypr.core.CharsRecognise;
-import org.easypr.core.CoreFunc;
-import org.easypr.core.PlateDetect;
-import org.easypr.core.PlateLocate;
 import org.junit.Test;
+
+import edu.hfut.lpr.core.CharsIdentify;
+import edu.hfut.lpr.core.CharsRecognize;
+import edu.hfut.lpr.core.CoreFunc;
+import edu.hfut.lpr.core.PlateDetect;
+import edu.hfut.lpr.core.PlateLocate;
 
 /**
  * @author lin.yao
@@ -31,7 +32,7 @@ public class EasyPrTest {
         plateDetect.setPDLifemode(true);
         Vector<Mat> matVector = new Vector<Mat>();
         if (0 == plateDetect.plateDetect(src, matVector)) {
-            CharsRecognise cr = new CharsRecognise();
+            CharsRecognize cr = new CharsRecognize();
             
             for (int i = 0; i < matVector.size(); ++i) {
                 String result = cr.charsRecognise(matVector.get(i));
@@ -80,7 +81,7 @@ public class EasyPrTest {
         String imgPath = "res/image/test_image/chars_recognise_huAGH092.jpg";
 
         Mat src = imread(imgPath);
-        CharsRecognise cr = new CharsRecognise();
+        CharsRecognize cr = new CharsRecognize();
         cr.setCRDebug(true);
         String result = cr.charsRecognise(src);
         System.out.println("Chars Recognised: " + result);

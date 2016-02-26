@@ -1,4 +1,4 @@
-package org.easypr.core;
+package edu.hfut.lpr.core;
 
 import java.util.Vector;
 
@@ -13,7 +13,7 @@ import org.bytedeco.javacpp.opencv_core.Mat;
 public class PlateRecognize {
 
 	private PlateDetect plateDetect = new PlateDetect();
-	private CharsRecognise charsRecognise = new CharsRecognise();
+	private CharsRecognize charsRecognise = new CharsRecognize();
 
 	public int plateRecognize(Mat src, Vector<String> licenseVec) {
 		// 车牌方块集合

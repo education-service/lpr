@@ -1,4 +1,4 @@
-package org.easypr.core;
+package edu.hfut.lpr.core;
 
 import org.bytedeco.javacpp.opencv_core.Mat;
 
