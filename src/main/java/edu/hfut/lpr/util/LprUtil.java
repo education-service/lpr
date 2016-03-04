@@ -9,7 +9,7 @@ import java.util.Vector;
  * @author wanggang
  *
  */
-public class Util {
+public class LprUtil {
 
 	/**
 	 * 获取目录下面的所有文件

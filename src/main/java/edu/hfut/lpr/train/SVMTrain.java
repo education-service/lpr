@@ -23,7 +23,7 @@ import org.bytedeco.javacpp.opencv_ml.CvSVMParams;
 import edu.hfut.lpr.core.Features;
 import edu.hfut.lpr.core.SVMCallback;
 import edu.hfut.lpr.util.Convert;
-import edu.hfut.lpr.util.Util;
+import edu.hfut.lpr.util.LprUtil;
 
 /**
  * SVM训练
@@ -49,7 +49,7 @@ public class SVMTrain {
 		final String filePath = "data/train/data/plate_detect_svm/learn/" + name;
 		Vector<String> files = new Vector<>();
 		////获取该路径下的所有文件
-		Util.getFiles(filePath, files);
+		LprUtil.getFiles(filePath, files);
 		int size = files.size();
 		if (0 == size) {
 			System.out.println("File not found in " + filePath);
@@ -59,8 +59,8 @@ public class SVMTrain {
 		// 随机选取70%作为训练数据，30%作为测试数据
 		int boundry = (int) (bound * size);
 
-		Util.recreateDir("data/train/data/plate_detect_svm/train/" + name);
-		Util.recreateDir("data/train/data/plate_detect_svm/test/" + name);
+		LprUtil.recreateDir("data/train/data/plate_detect_svm/train/" + name);
+		LprUtil.recreateDir("data/train/data/plate_detect_svm/test/" + name);
 
 		System.out.println("Save " + name + " train!");
 		for (int i = 0; i < boundry; i++) {
@@ -87,7 +87,7 @@ public class SVMTrain {
 		Vector<String> files = new Vector<>();
 
 		// 获取该路径下的所有文件
-		Util.getFiles(filePath, files);
+		LprUtil.getFiles(filePath, files);
 
 		int size = files.size();
 		if (0 == size) {
@@ -112,7 +112,7 @@ public class SVMTrain {
 		int label = 1;
 		final String filePath = "data/train/data/plate_detect_svm/test/" + name;
 		Vector<String> files = new Vector<>();
-		Util.getFiles(filePath, files);
+		LprUtil.getFiles(filePath, files);
 
 		int size = files.size();
 		if (0 == size) {
@@ -181,7 +181,6 @@ public class SVMTrain {
 		double pfalse_rfalse = 0;
 
 		for (int i = 0; i < nRows; i++) {
-
 			final float predict = Convert.toFloat(testingclasses_preditc.ptr(i));
 			final float real = Convert.toFloat(testingclasses_real.ptr(i));
 

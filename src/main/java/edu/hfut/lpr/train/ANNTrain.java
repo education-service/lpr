@@ -21,7 +21,7 @@ import org.bytedeco.javacpp.opencv_ml.CvANN_MLP;
 
 import edu.hfut.lpr.core.CoreFunc.Direction;
 import edu.hfut.lpr.util.Convert;
-import edu.hfut.lpr.util.Util;
+import edu.hfut.lpr.util.LprUtil;
 
 /**
  * ANN训练
@@ -122,7 +122,7 @@ public class ANNTrain {
 			System.out.println("Character: " + strCharacters[i]);
 			String str = path + '/' + strCharacters[i];
 			Vector<String> files = new Vector<String>();
-			Util.getFiles(str, files);
+			LprUtil.getFiles(str, files);
 
 			int size = files.size();
 			for (int j = 0; j < size; j++) {
@@ -147,7 +147,7 @@ public class ANNTrain {
 			System.out.println("Character: " + strChinese[i]);
 			String str = path + '/' + strChinese[i];
 			Vector<String> files = new Vector<String>();
-			Util.getFiles(str, files);
+			LprUtil.getFiles(str, files);
 
 			int size = files.size();
 			for (int j = 0; j < size; j++) {

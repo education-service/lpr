@@ -40,8 +40,7 @@ public class CoreFunc {
 	 *
 	 * @param src 输入RGB图像
 	 * @param r   颜色模板（蓝色、黄色）
-	 * @param adaptive_minsv
-	 *            S和V的最小值由adaptive_minsv这个bool值判断
+	 * @param adaptive_minsv  S和V的最小值由adaptive_minsv这个bool值判断
 	 *            <ul>
 	 *            <li>如果为true，则最小值取决于H值，按比例衰减
 	 *            <li>如果为false，则不再自适应，使用固定的最小值minabs_sv
@@ -282,8 +281,8 @@ public class CoreFunc {
 	/**
 	 * 展示图像
 	 *
-	 * @param title
-	 * @param src
+	 * @param title 图像标题
+	 * @param src   图像矩阵
 	 */
 	public static void showImage(final String title, final Mat src) {
 		try {

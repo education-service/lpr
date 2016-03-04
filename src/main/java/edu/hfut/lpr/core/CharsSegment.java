@@ -65,10 +65,10 @@ public class CharsSegment {
 	/**
 	 * 字符分割
 	 *
-	 * @param input
-	 * @param resultVec
+	 * @param input      输入矩阵
+	 * @param resultVec  结果向量
 	 * @return <ul>
-	 *         <li>more than zero: the number of chars;
+	 *         <li>大于0: 字符个数;
 	 *         <li>-3: null;
 	 *         </ul>
 	 */
@@ -119,7 +119,7 @@ public class CharsSegment {
 
 		MatVector contours = new MatVector();
 
-		findContours(img_contours, contours, // 一个contours向量
+		findContours(img_contours, contours, // 一个轮廓向量
 				CV_RETR_EXTERNAL, // 提取外部轮廓
 				CV_CHAIN_APPROX_NONE); // 每个轮廓的所有像素值
 
@@ -187,6 +187,7 @@ public class CharsSegment {
 			}
 			resultVec.add(auxRoi);
 		}
+
 		return 0;
 	}
 
@@ -363,8 +364,8 @@ public class CharsSegment {
 	 * @return
 	 */
 	private void SortRect(final Vector<Rect> vecRect, Vector<Rect> out) {
-		Vector<Integer> orderIndex = new Vector<Integer>();
-		Vector<Integer> xpositions = new Vector<Integer>();
+		Vector<Integer> orderIndex = new Vector<>();
+		Vector<Integer> xpositions = new Vector<>();
 		for (int i = 0; i < vecRect.size(); ++i) {
 			orderIndex.add(i);
 			xpositions.add(vecRect.get(i).x());

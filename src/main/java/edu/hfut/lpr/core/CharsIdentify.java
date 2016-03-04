@@ -40,6 +40,7 @@ public class CharsIdentify {
 			"zh_shan" /* 陕 */, "zh_su" /* 苏 */, "zh_sx" /* 晋 */, "zh_wan" /* 皖 */,
 			"zh_xiang" /* 湘 */, "zh_xin" /* 新 */, "zh_yu" /* 豫 */, "zh_yu1" /* 渝 */,
 			"zh_yue" /* 粤 */, "zh_yun" /* 云 */, "zh_zang" /* 藏 */, "zh_zhe" /* 浙 */};
+
 	@SuppressWarnings("unused")
 	private final static int numChinese = 31;
 
@@ -86,8 +87,8 @@ public class CharsIdentify {
 	}
 
 	/**
-	 * @param input
-	 * @param isChinese
+	 * @param input      输入字符矩阵
+	 * @param isChinese  是否是中文字符
 	 * @return
 	 */
 	public String charsIdentify(final Mat input, final Boolean isChinese, final Boolean isSpeci) {

@@ -126,7 +126,7 @@ public class PlateLocate {
 	 * @return 一个Mat的向量，存储所有抓取到的图像
 	 */
 	public Vector<Mat> plateLocate(Mat src) {
-		Vector<Mat> resultVec = new Vector<Mat>();
+		Vector<Mat> resultVec = new Vector<>();
 
 		Mat src_blur = new Mat();
 		Mat src_gray = new Mat();
@@ -203,12 +203,13 @@ public class PlateLocate {
 		// 对找出来的每个轮廓进行迭代计算
 		// 筛选：对轮廓求最小外接矩形，然后验证，不满足条件的淘汰。
 
-		Vector<RotatedRect> rects = new Vector<RotatedRect>();
+		Vector<RotatedRect> rects = new Vector<>();
 
 		for (int i = 0; i < contours.size(); ++i) {
 			RotatedRect mr = minAreaRect(contours.get(i));
-			if (verifySizes(mr))
+			if (verifySizes(mr)) {
 				rects.add(mr);
+			}
 		}
 
 		int k = 1;
@@ -339,19 +340,20 @@ public class PlateLocate {
 	private boolean verifySizes(RotatedRect mr) {
 		float error = this.error;
 
-		// China car plate size: 440mm*140mm，aspect 3.142857
+		// 国内车牌大小: 440mm*140mm，aspect 3.142857
 		float aspect = this.aspect;
-		int min = 44 * 14 * verifyMin; // minimum area
-		int max = 44 * 14 * verifyMax; // maximum area
+		int min = 44 * 14 * verifyMin; // 最小区域
+		int max = 44 * 14 * verifyMax; // 最大区域
 
-		// Get only patchs that match to a respect ratio.
+		// 计算合理比率值区域
 		float rmin = aspect - aspect * error;
 		float rmax = aspect + aspect * error;
 
 		int area = (int) (mr.size().height() * mr.size().width());
 		float r = mr.size().width() / mr.size().height();
-		if (r < 1)
+		if (r < 1) {
 			r = mr.size().height() / mr.size().width();
+		}
 
 		return area >= min && area <= max && r >= rmin && r <= rmax;
 	}

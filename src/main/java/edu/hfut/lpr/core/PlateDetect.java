@@ -23,9 +23,9 @@ public class PlateDetect {
 	 * @param resultVec 可能是车牌的图块集合
 	 * @return the error number
 	 *         <ul>
-	 *         <li>0: plate detected successfully;
-	 *         <li>-1: source Mat is empty;
-	 *         <li>-2: plate not detected.
+	 *         <li> 0: 车牌检测成功
+	 *         <li>-1: 车牌定位区域为空，即定位不到候选车牌区域
+	 *         <li>-2: 检测不到车牌
 	 *         </ul>
 	 */
 	public int plateDetect(final Mat src, Vector<Mat> resultVec) {
