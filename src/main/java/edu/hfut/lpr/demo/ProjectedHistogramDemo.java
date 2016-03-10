@@ -13,7 +13,10 @@ public class ProjectedHistogramDemo {
 		String imgPath = "data/image/test_image/chars_identify_E.jpg";
 
 		Mat src = imread(imgPath);
-		projectedHistogram(src, CoreFunc.Direction.HORIZONTAL);
+		float[] hist = projectedHistogram(src, CoreFunc.Direction.HORIZONTAL);
+		for (float h : hist) {
+			System.out.println(h);
+		}
 	}
 
 }
